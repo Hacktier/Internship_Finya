@@ -11,7 +11,10 @@ import 'quasar/src/css/index.sass'
 // and placed in same folder as main.js
 import App from './App.vue'
 
-const myApp = createApp(App)
+import router from './router'
+
+
+const myApp = createApp(App).use(router)
 
 myApp.use(Quasar, {
     plugins: {}, // import Quasar plugins and add here
