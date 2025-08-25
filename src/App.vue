@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import Calculator from "./components/Calculator.vue";
-import Explanation from "@/components/Explanation.vue";
-import Store from "@/components/Store.vue";
+import Dashboard from "./components/Dashboard.vue";
 </script>
 
 <template>
-  <Store />
+  <Dashboard />
 </template>
 
 <style scoped>
