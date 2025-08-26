@@ -4,19 +4,19 @@ import {ref} from "vue";
 const lul = ref('')
 const result = ref('test')
 
-function ifTest() {
-  if (lul.value === 1) {
-      result.value = 'Hallo'
-    return
-  }
-
-  if (lul.value === 2) {
-    result.value = ':)'
-    return
-  }
-
-  result.value = 'Welt'
-}
+// function ifTest() {
+//   if (lul.value === 1) {
+//       result.value = 'Hallo'
+//     return
+//   }
+//
+//   if (lul.value === 2) {
+//     result.value = ':)'
+//     return
+//   }
+//
+//   result.value = 'Welt'
+// }
 
 function switchTest() {
   switch (lul.value) {
