@@ -70,7 +70,6 @@ function getProduct(irgendwas:number) {
         <q-card-section class="q-pt-none">
           {{ product.description }}
         </q-card-section>
-        -section>
 
         <q-card-section class="q-pt-none">
           {{ product.rating.rate }}
