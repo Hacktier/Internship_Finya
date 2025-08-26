@@ -12,11 +12,9 @@ const roundedRating = computed( () => {
   if (product.value) {
     return Math.round(product.value.rating.rate)
   }
-})
 
-interface productResponseType {
-  data: productType
-}
+  return 0
+})
 
 interface productType {
   title: string
@@ -32,8 +30,8 @@ interface productType {
 
 function getProduct(irgendwas:number) {
  console.log(irgendwas)
-  axios.get<productResponseType>('https://fakestoreapi.com/products/' +irgendwas)
-      .then(response => product.value = response.data)
+  axios.get('https://fakestoreapi.com/products/' +irgendwas)
+      .then(response => product.value = response.data as productType)
 }
 
 </script>
@@ -72,7 +70,6 @@ function getProduct(irgendwas:number) {
         <q-card-section class="q-pt-none">
           {{ product.description }}
         </q-card-section>
-        -section>
 
         <q-card-section class="q-pt-none">
           {{ product.rating.rate }}

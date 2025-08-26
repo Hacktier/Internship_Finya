@@ -13,14 +13,24 @@ function getWinner() {
   const min = 1;
   const max = 100;
   const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  result.value = randomNumber
 
   const eins = randomNumber - number1.value
   const zwei = randomNumber - number2.value
 
+  if (Math.abs(eins) < Math.abs(zwei)) {
+    winner.value = '1'
+    return
+  }
 
-  //abs
+  if (Math.abs(eins) === Math.abs(zwei)) {
+    winner.value = '1/2'
+    return
+  }
+
+
+  winner.value = '2'
 }
-
 
 </script>
 
