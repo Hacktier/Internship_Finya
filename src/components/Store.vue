@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import axios from "axios";
 import {computed, ref} from "vue";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 const number2 = ref(0)
 const product = ref<productType | null>(null)
@@ -38,6 +41,8 @@ function getProduct(irgendwas:number) {
 <template>
   <div class="q-pa-md">
     <div class="flex flex-center">
+      <q-btn unelevated rounded outline label="Zurück" @click="router.push({ name: 'Dashboard' })" class="fixed-top-left q-ma-md"/>
+
       <q-btn color="primary" @click="getProduct(number2)">Suchen</q-btn>
     </div>
 

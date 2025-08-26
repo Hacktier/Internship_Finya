@@ -15,7 +15,8 @@
     <q-btn outline rounded color="primary" label="google übersetzer" />
     <q-btn unelevated round color="primary" disable icon="card_giftcard" />
     <q-btn outline rounded color="primary" label="google" />
-
+    <q-btn unelevated round color="primary" disable icon="card_giftcard" />
+    <q-btn outline rounded color="primary" label="ZahlenRaten" />
   </div>
 </template>
 

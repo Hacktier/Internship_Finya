@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 const number1 = ref(0)
 const number2 = ref(0)
@@ -82,6 +85,7 @@ function add(number1: number, number2: number) {
   <q-layout>
     <q-page-container>
       <q-page class="flex flex-center">
+        <q-btn unelevated rounded outline label="Zurück" @click="router.push({ name: 'Dashboard' })" class="fixed-top-left q-ma-md"/>
         <div class="column items-center">
           <div class="row q-mb-lg">
             <h3>Dein Ergebnis ist: {{ result }}</h3>
