@@ -1,25 +1,82 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 const number1 = ref(0)
 const number2 = ref(0)
 const operator = ref('+')
-const operatorOptions = ['+', '-']
+const operatorOptions = ['+', '-', '/', 'X', 'rest']
 
 const result = ref<number | null>(null)
 
 function calculate() {
-  if (operator.value === '+') {
-    add(number1.value, number2.value)
-    return
-  }
+  switch (operator.value) {
 
-  alert("Dieser Operator muss noch gebaut werden.")
+    case '+':
+      add(number1.value, number2.value)
+      break
+    case '/':
+      division(number1.value, number2.value)
+      break
+    case '-':
+      subtract(number1.value, number2.value)
+      break
+    case 'X':
+      multiplicate(number1.value, number2.value)
+      break
+    case 'rest':
+      rest(number1.value, number2.value)
+  }
+}
+  // if (operator.value === '+') {
+  //   add(number1.value, number2.value)
+  // }
+  //
+  // if (operator.value === '/') {
+  //   division(number1.value, number2.value)
+  // }
+  //
+  // if (operator.value === '-') {
+  //   subtract(number1.value, number2.value)
+  // }
+  //
+  // if (operator.value === 'x') {
+  //   multiplicate(number1.value, number2.value)
+  // }
+  // if (operator.value === 'rest') {
+  //   rest(number1.value, number2.value)
+  // }
+
+
+function rest(number1: number, number2: number) {
+  let temp = number1
+
+  while (temp >= number2) {
+    temp = temp - number2
+  }
+  result.value = temp
+
+  // result.value = number1 % number2  ist das gleiche
+}
+
+function multiplicate(number1: number, number2: number) {
+  result.value = number1 * number2
+}
+
+function subtract(number1: number, number2: number) {
+  result.value = number1 - number2
+}
+
+function division(number1: number, number2: number) {
+  result.value = number1 / number2
 }
 
 function add(number1: number, number2: number) {
   result.value = number1 + number2
 }
+
 
 
 </script>
@@ -28,6 +85,7 @@ function add(number1: number, number2: number) {
   <q-layout>
     <q-page-container>
       <q-page class="flex flex-center">
+        <q-btn unelevated rounded outline label="Zurück" @click="router.push({ name: 'Dashboard' })" class="fixed-top-left q-ma-md"/>
         <div class="column items-center">
           <div class="row q-mb-lg">
             <h3>Dein Ergebnis ist: {{ result }}</h3>
@@ -64,6 +122,6 @@ function add(number1: number, number2: number) {
 
 <style scoped>
 .q-select {
-  width: 75px;
+  width: 150px;
 }
 </style>
